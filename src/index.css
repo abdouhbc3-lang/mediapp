@@ -1,0 +1,206 @@
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 25% 97%;
+    --foreground: 200 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 40% 15%;
+
+    --primary: 168 76% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 30% 94%;
+    --secondary-foreground: 200 40% 20%;
+
+    --muted: 180 20% 95%;
+    --muted-foreground: 200 15% 50%;
+
+    --accent: 340 75% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 152 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --medical: 200 80% 55%;
+    --medical-foreground: 0 0% 100%;
+
+    --healing: 168 60% 50%;
+    --healing-foreground: 0 0% 100%;
+
+    --border: 180 25% 88%;
+    --input: 180 25% 88%;
+    --ring: 168 76% 42%;
+
+    --radius: 1rem;
+
+    /* Medical-themed gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(168 76% 42%), hsl(180 70% 48%));
+    --gradient-accent: linear-gradient(135deg, hsl(340 75% 55%), hsl(350 70% 60%));
+    --gradient-success: linear-gradient(135deg, hsl(152 70% 45%), hsl(168 65% 50%));
+    --gradient-medical: linear-gradient(135deg, hsl(200 80% 55%), hsl(210 75% 60%));
+    --gradient-healing: linear-gradient(145deg, hsl(168 60% 50%), hsl(152 70% 45%));
+    --gradient-background: linear-gradient(180deg, hsl(180 25% 97%), hsl(180 30% 94%));
+
+    /* Custom shadows */
+    --shadow-soft: 0 4px 24px -4px hsl(200 40% 15% / 0.08);
+    --shadow-elevated: 0 8px 32px -8px hsl(200 40% 15% / 0.15);
+    --shadow-glow: 0 0 40px hsl(168 76% 42% / 0.25);
+    --shadow-medical: 0 4px 20px hsl(200 80% 55% / 0.2);
+
+    /* Glass effects */
+    --glass-bg: 0 0% 100% / 0.85;
+    --glass-border: 0 0% 100% / 0.6;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 200 30% 8%;
+    --foreground: 180 20% 95%;
+
+    --card: 200 25% 12%;
+    --card-foreground: 180 20% 95%;
+
+    --popover: 200 25% 12%;
+    --popover-foreground: 180 20% 95%;
+
+    --primary: 168 65% 50%;
+    --primary-foreground: 200 30% 8%;
+
+    --secondary: 200 25% 18%;
+    --secondary-foreground: 180 20% 90%;
+
+    --muted: 200 25% 15%;
+    --muted-foreground: 180 15% 60%;
+
+    --accent: 340 70% 60%;
+    --accent-foreground: 200 30% 8%;
+
+    --success: 152 60% 50%;
+    --success-foreground: 200 30% 8%;
+
+    --warning: 38 85% 55%;
+    --warning-foreground: 200 30% 8%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 180 20% 95%;
+
+    --medical: 200 70% 60%;
+    --medical-foreground: 200 30% 8%;
+
+    --healing: 168 55% 55%;
+    --healing-foreground: 200 30% 8%;
+
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 168 65% 50%;
+
+    --glass-bg: 200 25% 15% / 0.85;
+    --glass-border: 200 25% 25% / 0.5;
+    
+    --gradient-background: linear-gradient(180deg, hsl(200 30% 8%), hsl(200 25% 10%));
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+    background: var(--gradient-background);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[hsl(var(--glass-bg))] backdrop-blur-xl border border-[hsl(var(--glass-border))];
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+
+  .gradient-medical {
+    background: var(--gradient-medical);
+  }
+
+  .gradient-healing {
+    background: var(--gradient-healing);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-medical {
+    box-shadow: var(--shadow-medical);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: var(--gradient-primary);
+  }
+
+  .medical-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(168 76% 42% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(200 80% 55% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(340 75% 55% / 0.03) 0%, transparent 40%);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}
